@@ -71,18 +71,18 @@ Where:
 
 ## Final Recommendation (From Model)
 
-## Bowler B has a higher posterior wicket probability in death overs.
+## Bowler A has a higher posterior wicket probability in death overs.
 
 ##--> The 94% HDI of pressure-effect posterior for Bowler B
 does not overlap with that of Bowler A.
 
 - This means:
 
-- Bowler B is more likely to convert pressure into wickets
+- Bowler A is more likely to convert pressure into wickets
 
-- Bowler B is a better buy for the "Death Overs Specialist" role
+- Bowler A is a better buy for the "Death Overs Specialist" role
 
-- Bowler A's performance drops under high-pressure, high-leverage situations
+- Bowler B's performance drops under high-pressure, high-leverage situations
 
 ###  Visual Outputs
 
