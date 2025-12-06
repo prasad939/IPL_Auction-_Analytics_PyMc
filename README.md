@@ -1,194 +1,121 @@
-# IPL_Auction-_Analytics_PyMc
-🏏 IPL Auction Analytics using Bayesian Modeling (PyMC)
-A probabilistic decision system for selecting the optimal Death-Overs Specialist in the IPL auction.
-⭐ Project Overview
+### IPL Auction Analytics using Bayesian Modeling (PyMC)
+### A probabilistic decision system for selecting the optimal Death-Overs Specialist in the IPL auction.
 
-This project builds a Bayesian Hierarchical Model (BHM) using PyMC to quantify the hidden “Pressure Effect” (Killer Instinct) of bowlers during IPL death overs (17–20).
+### Project Overview
 
-Traditional stats like economy rate or bowling average fail to capture clutch behavior under extreme match pressure.
+#### This project builds a BAYESIAN  Generalized Linear Model (GLM) using PyMC to quantify the hidden “Pressure Effect” (Killer Instinct) of bowlers during IPL death overs (17–20).
+
+- Traditional stats like economy rate or bowling average fail to capture clutch behavior under extreme match pressure.
 This model solves exactly that problem.
 
-We estimate:
+- We estimate:
 
-🔥 Wicket probability under pressure
+- Wicket probability under pressure
 
-🎯 Ball-level posterior predictive distributions
+- Ball-level posterior predictive distributions
 
-📈 Bowler-specific random effects
+- Bowler-specific random effects
 
-⚡ How pitch, pressure, and match state influence performance
+-  How pitch, pressure, and match state influence performance
 
-👑 Final auction recommendation: Bowler A vs Bowler B
+- Final auction recommendation: Bowler A vs Bowler B
 
-Used by analysts to evaluate who should be purchased as the team's Death-Overs Specialist.
+## Used by analysts to evaluate who should be purchased as the team's Death-Overs Specialist.
 
-📊 Key Features
+### Key Features
 
-Bayesian Hierarchical Logistic Regression
+- 1.Bayesian Hierarchical Logistic Regression
 
-94% High Density Interval (HDI)–based decision framework
+- 2.94% High Density Interval (HDI)–based decision framework
 
-Posterior predictive simulation (ppc) for each ball
+- 3.Posterior predictive simulation (ppc) for each ball
 
-Random effects for bowlers + pitch types
+- 4.Random effects for bowlers + pitch types
 
-Inference using NUTS sampler (PyMC)
+- 5.Inference using NUTS sampler (PyMC)
 
-Model explainability with ArviZ
+### Model explainability with ArviZ
 
-🧠 Why Bayesian Modeling?
+#### Why Bayesian Modeling?
 
-Death overs are rare events → small sample size → high uncertainty.
+- Death overs are rare events → small sample size → high uncertainty.
 Bayesian modeling quantifies uncertainty, instead of hiding it.
 
-This project:
+### This project:
 
-Shows full posterior distribution
+- 1.Shows full posterior distribution
 
-Computes HDI for true wicket-taking ability
+- 2.Computes HDI for true wicket-taking ability
 
-Removes overfitting with partial pooling
+- 3.Removes overfitting with partial pooling
 
-Produces robust decisions for recruitment
+- 4.Produces robust decisions for recruitment
 
-📁 Repository Structure
-IPL_Auction-Analytics-PyMC/
-│
-├── data/
-│   └── cleaned_deathovers.csv
-│
-├── notebooks/
-│   ├── 01_EDA.ipynb
-│   ├── 02_Bayesian_Model.ipynb
-│   ├── 03_Posterior_Predictive.ipynb
-│   └── 04_Final_Recommendation.ipynb
-│
-├── src/
-│   ├── modeling.py
-│   ├── loader.py
-│   └── metrics.py
-│
-├── plots/
-│   ├── trace_plots.png
-│   ├── hdi_plots.png
-│   └── pressure_curves.png
-│
-├── README.md
-└── requirements.txt
 
-🧮 Model Summary
+### Model Summary
 Hierarchical Logistic Model
-logit
-(
-𝑝
-)
-=
-𝛽
-0
-+
-𝛽
-pitch
-+
-𝛽
-pressure
-+
-𝑢
-bowler
-logit(p)=β
-0
-	​
-
-+β
-pitch
-	​
-
-+β
-pressure
-	​
-
-+u
-bowler
-	​
-
+logit(p) = β₀​ +β (pitch)​+ β(pressure)+ u(bowler​)
 
 Where:
 
-β₀ → global intercept
+- β₀ → global intercept
 
-u_bowler → random intercept per bowler
+- u_bowler → random intercept per bowler
 
-β_pitch → pitch-level effect
+- β_pitch → pitch-level effect
 
-β_pressure → pressure-level effect
+- β_pressure → pressure-level effect
 
-Posterior sampling: pm.sample() using NUTS
-Posterior predictive: pm.sample_posterior_predictive()
+- Posterior sampling: pm.sample() using NUTS
+- Posterior predictive: pm.sample_posterior_predictive()
 
-🏆 Final Recommendation (From Model)
+## Final Recommendation (From Model)
 
-👉 Bowler B has a higher posterior wicket probability in death overs.
+## Bowler B has a higher posterior wicket probability in death overs.
 
-📌 The 94% HDI of pressure-effect posterior for Bowler B
+##--> The 94% HDI of pressure-effect posterior for Bowler B
 does not overlap with that of Bowler A.
 
-This means:
+- This means:
 
-Bowler B is more likely to convert pressure into wickets
+- Bowler B is more likely to convert pressure into wickets
 
-Bowler B is a better buy for the "Death Overs Specialist" role
+- Bowler B is a better buy for the "Death Overs Specialist" role
 
-Bowler A's performance drops under high-pressure, high-leverage situations
+- Bowler A's performance drops under high-pressure, high-leverage situations
 
-📈 Visual Outputs
+###  Visual Outputs
 
-Trace plots
+- Trace plots
 
-HDI intervals for pressure effect
+- HDI intervals for pressure effect
 
-Posterior predictive wicket curves
+- Posterior predictive wicket curves
 
-Random effects distribution per bowler
+- Random effects distribution per bowler
 
-Bowler comparison using Bayesian decision rule
+- Bowler comparison using Bayesian decision rule
 
-🔍 Installation
-Create environment
-conda create -n pymc_env python=3.10 -y
-conda activate pymc_env
+#### Technologies Used
 
-Install dependencies
-pip install -r requirements.txt
+- 1.PyMC (Bayesian modeling)
 
-▶️ How to Run the Project
-jupyter lab
+- 2.ArviZ (diagnostics + visualization)
 
+- 3.Python
 
-Open:
+- 4.NumPy / Pandas / Matplotlib / Seaborn
 
-notebooks/02_Bayesian_Model.ipynb
+- 5.Jupyter Lab
 
-notebooks/04_Final_Recommendation.ipynb
+### Future Improvements
 
-🛠 Technologies Used
+- Add ball-by-ball win probability modeling
 
-PyMC (Bayesian modeling)
+- Use Gaussian Process priors for non-linearity
 
-ArviZ (diagnostics + visualization)
+- Include batter quality effects
 
-Python
+- Extend model for T20 leagues beyond IPL
 
-NumPy / Pandas / Matplotlib / Seaborn
-
-Jupyter Lab
-
-🚀 Future Improvements
-
-Add ball-by-ball win probability modeling
-
-Use Gaussian Process priors for non-linearity
-
-Include batter quality effects
-
-Extend model for T20 leagues beyond IPL
-
-Build a web dashboard (Streamlit) for analysts
+- Build a web dashboard (Streamlit) for analysts
